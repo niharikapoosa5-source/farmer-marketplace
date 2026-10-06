@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | MarketHub</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            🛡️
+        </div>
+
+        <div>
+
+            <h1>MarketHub</h1>
+
+            <small>
+                Security Administration
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/logout">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+
+<section class="dashboard">
+
+    <h2>
+        Admin Dashboard
+    </h2>
+
+    <p>
+        Monitor users, products, fraud alerts and ledger integrity.
+    </p>
+
+
+    <!-- LEDGER -->
+
+    <div class="admin-security">
+
+        {% if ledger_valid %}
+
+        <h2 class="success">
+            ✅ Ledger Verified
+        </h2>
+
+        <p>
+            All chained records are valid.
+        </p>
+
+        {% else %}
+
+        <h2 class="danger">
+            ❌ Tampering Detected
+        </h2>
+
+        <p>
+            Ledger integrity has been compromised.
+        </p>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- USERS -->
+
+    <h2 class="dashboard-title">
+        Users
+    </h2>
+
+
+    <div class="order-table">
+
+        {% for user in users %}
+
+        <div class="order-row">
+
+            <span>
+                {{ user["name"] }}
+            </span>
+
+            <span>
+                {{ user["phone"] }}
+            </span>
+
+            <span>
+                {{ user["role"] }}
+            </span>
+
+            <span>
+
+                {% if user["verified"] %}
+
+                ✅ Verified
+
+                {% else %}
+
+                ❌ Not Verified
+
+                {% endif %}
+
+            </span>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+
+    <!-- FRAUD -->
+
+    <h2 class="dashboard-title">
+        Fraud Alerts
+    </h2>
+
+
+    {% for alert in alerts %}
+
+    <div class="alert">
+
+        🚨
+
+        <strong>
+            {{ alert["alert_type"] }}
+        </strong>
+
+        -
+
+        {{ alert["message"] }}
+
+    </div>
+
+    {% else %}
+
+    <p>
+        No fraud alerts.
+    </p>
+
+    {% endfor %}
+
+
+</section>
+
+
+</body>
+
+</html>

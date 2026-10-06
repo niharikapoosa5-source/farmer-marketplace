@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Marketplace | MarketHub</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            🌾
+        </div>
+
+        <div>
+
+            <h1>MarketHub</h1>
+
+            <small>
+                Farmer Marketplace
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/orders">
+            My Orders
+        </a>
+
+        <a href="/logout">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+
+<section class="dashboard">
+
+    <div class="dashboard-header">
+
+        <div>
+
+            <h2>
+                Fresh From Farmers
+            </h2>
+
+            <p>
+                Buy directly from verified farmers.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <form method="GET"
+          class="search-box">
+
+        <input
+            name="search"
+            placeholder="Search tomatoes, rice, apples..."
+        >
+
+        <select name="category">
+
+            <option value="">
+                All Categories
+            </option>
+
+            <option value="Vegetables">
+                Vegetables
+            </option>
+
+            <option value="Fruits">
+                Fruits
+            </option>
+
+            <option value="Grains">
+                Grains
+            </option>
+
+            <option value="Pulses">
+                Pulses
+            </option>
+
+        </select>
+
+        <button>
+            Search
+        </button>
+
+    </form>
+
+
+    <div class="product-grid">
+
+        {% for product in products %}
+
+        <div class="product-card">
+
+            <div class="product-image">
+                🌱
+            </div>
+
+            <h3>
+                {{ product["name"] }}
+            </h3>
+
+            <p>
+                👨‍🌾 {{ product["farmer_name"] }}
+            </p>
+
+            <p>
+                📍 {{ product["location"] }}
+            </p>
+
+            <h3>
+                ₹{{ product["price"] }}/kg
+            </h3>
+
+            <p>
+                Available:
+                {{ product["quantity"] }} kg
+            </p>
+
+
+            <form method="POST"
+                  action="/order/{{ product['id'] }}">
+
+                <input
+                    type="number"
+                    name="quantity"
+                    value="1"
+                    min="1"
+                    max="{{ product['quantity'] }}"
+                    required
+                >
+
+                <button type="submit">
+                    🛒 Order Now
+                </button>
+
+            </form>
+
+        </div>
+
+        {% else %}
+
+        <p>
+            No products found.
+        </p>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+</body>
+
+</html>

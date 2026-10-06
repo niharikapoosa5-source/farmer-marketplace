@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Register | MarketHub</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="brand">
+
+        <div class="brand-icon">🌾</div>
+
+        <div>
+
+            <h1>MarketHub</h1>
+
+            <small>
+                Farm Fresh • Direct • Secure
+            </small>
+
+        </div>
+
+    </div>
+
+    <nav>
+
+        <a href="/">Home</a>
+
+        <a href="/marketplace">
+            Marketplace
+        </a>
+
+    </nav>
+
+</header>
+
+
+<section class="form-section">
+
+    <div class="form-card">
+
+        <h2>
+            Create Your MarketHub Account
+        </h2>
+
+        <p>
+            Join our secure farmer-to-consumer marketplace.
+        </p>
+
+
+        {% with messages =
+            get_flashed_messages(with_categories=true) %}
+
+            {% for category, message in messages %}
+
+                <div class="alert">
+                    {{ message }}
+                </div>
+
+            {% endfor %}
+
+        {% endwith %}
+
+
+        <form method="POST">
+
+            <label>
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                name="name"
+                required
+            >
+
+
+            <label>
+                Mobile Number
+            </label>
+
+            <input
+                type="tel"
+                name="phone"
+                maxlength="10"
+                required
+            >
+
+
+            <label>
+                Account Type
+            </label>
+
+            <select name="role" required>
+
+                <option value="">
+                    Select Account Type
+                </option>
+
+                <option value="buyer">
+                    Buyer
+                </option>
+
+                <option value="farmer">
+                    Farmer
+                </option>
+
+            </select>
+
+
+            <button type="submit">
+                Continue to OTP Verification
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+</body>
+
+</html>

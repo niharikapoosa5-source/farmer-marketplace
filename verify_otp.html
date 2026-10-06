@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Verify OTP | MarketHub</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<section class="form-section">
+
+    <div class="form-card">
+
+        <div class="large-icon">
+            🔐
+        </div>
+
+        <h2>
+            Verify Your Mobile
+        </h2>
+
+        <p>
+            Enter the 6-digit OTP sent to your mobile.
+        </p>
+
+        <p>
+            <strong>Demo OTP: 123456</strong>
+        </p>
+
+
+        {% with messages =
+            get_flashed_messages(with_categories=true) %}
+
+            {% for category, message in messages %}
+
+                <div class="alert">
+                    {{ message }}
+                </div>
+
+            {% endfor %}
+
+        {% endwith %}
+
+
+        <form method="POST">
+
+            <label>
+                Enter OTP
+            </label>
+
+            <input
+                type="text"
+                name="otp"
+                maxlength="6"
+                placeholder="123456"
+                required
+            >
+
+            <button type="submit">
+                Verify Account
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+</body>
+
+</html>

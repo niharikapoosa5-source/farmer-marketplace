@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Product | MarketHub</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<section class="form-section">
+
+    <div class="form-card">
+
+        <h2>
+            Add Farm Product
+        </h2>
+
+        <p>
+            List your fresh produce for buyers.
+        </p>
+
+
+        <form method="POST">
+
+            <label>
+                Product / Crop Name
+            </label>
+
+            <input
+                name="name"
+                placeholder="Tomatoes"
+                required
+            >
+
+
+            <label>
+                Category
+            </label>
+
+            <select name="category">
+
+                <option>
+                    Vegetables
+                </option>
+
+                <option>
+                    Fruits
+                </option>
+
+                <option>
+                    Grains
+                </option>
+
+                <option>
+                    Pulses
+                </option>
+
+                <option>
+                    Other
+                </option>
+
+            </select>
+
+
+            <label>
+                Price per KG (₹)
+            </label>
+
+            <input
+                type="number"
+                step="0.01"
+                name="price"
+                required
+            >
+
+
+            <label>
+                Quantity (KG)
+            </label>
+
+            <input
+                type="number"
+                step="0.1"
+                name="quantity"
+                required
+            >
+
+
+            <label>
+                Location
+            </label>
+
+            <input
+                name="location"
+                placeholder="Hyderabad"
+                required
+            >
+
+
+            <label>
+                Description
+            </label>
+
+            <input
+                name="description"
+                placeholder="Fresh farm tomatoes"
+            >
+
+
+            <button type="submit">
+                Publish Product
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+</body>
+
+</html>

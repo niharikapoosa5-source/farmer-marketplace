@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MarketHub | Farmer to Consumer</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+<!-- TOP BAR -->
+
+<div class="top-bar">
+
+    <div>
+        🌾 FARMER-TO-CONSUMER MARKETPLACE
+    </div>
+
+    <div>
+        Secure Marketplace | Verified Farmers
+    </div>
+
+</div>
+
+
+<!-- NAVIGATION -->
+
+<header class="navbar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            🌾
+        </div>
+
+        <div>
+
+            <h1>MarketHub</h1>
+
+            <small>
+                Farm Fresh • Direct • Secure
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <a href="/">Home</a>
+
+        <a href="/marketplace">
+            Marketplace
+        </a>
+
+        <a href="#farmers">
+            Farmers
+        </a>
+
+        <a href="#security">
+            Security
+        </a>
+
+        <a href="/orders">
+            Orders
+        </a>
+
+    </nav>
+
+
+    <div class="nav-actions">
+
+        <a href="/login"
+           class="login-link">
+            Login
+        </a>
+
+        <a href="/register"
+           class="register-button">
+            Register
+        </a>
+
+        <span class="menu-button">
+            ☰
+        </span>
+
+    </div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="verified">
+            ✓ VERIFIED FARMERS
+        </span>
+
+
+        <h2>
+            Fresh From Farmers.
+            <br>
+            Directly To You.
+        </h2>
+
+
+        <p>
+
+            Buy fresh farm products directly from
+            verified farmers without unnecessary
+            middlemen.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a href="/marketplace"
+               class="primary-button">
+
+                Explore Products
+
+            </a>
+
+
+            <a href="/register"
+               class="outline-button">
+
+                Become a Farmer
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- FLOATING CARDS -->
+
+    <div class="hero-cards">
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🔐
+            </div>
+
+            <h3>
+                Secure
+            </h3>
+
+            <p>
+                Tamper-proof marketplace records.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                👨‍🌾
+            </div>
+
+            <h3>
+                Verified Farmers
+            </h3>
+
+            <p>
+                Buy from verified sellers.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                💰
+            </div>
+
+            <h3>
+                Fair Prices
+            </h3>
+
+            <p>
+                Direct farmer-to-buyer pricing.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🛡️
+            </div>
+
+            <h3>
+                Fraud Detection
+            </h3>
+
+            <p>
+                Suspicious activity is flagged.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🔒
+            </div>
+
+            <h3>
+                Escrow
+            </h3>
+
+            <p>
+                Payment stays protected.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EXPLORE -->
+
+<section class="explore">
+
+    <h2>
+        Explore & Connect
+    </h2>
+
+    <p class="subtitle">
+        Everything you need for a trusted
+        farmer-to-consumer marketplace.
+    </p>
+
+
+    <div class="explore-grid">
+
+
+        <a href="/marketplace"
+           class="explore-card">
+
+            <div class="large-icon">
+                🥕
+            </div>
+
+            <h3>
+                Browse Products
+            </h3>
+
+            <p>
+                Discover fresh vegetables,
+                fruits and farm products.
+            </p>
+
+        </a>
+
+
+        <a href="/register"
+           class="explore-card">
+
+            <div class="large-icon">
+                👨‍🌾
+            </div>
+
+            <h3>
+                Verified Farmers
+            </h3>
+
+            <p>
+                Connect with trusted farmers.
+            </p>
+
+        </a>
+
+
+        <a href="/orders"
+           class="explore-card">
+
+            <div class="large-icon">
+                📦
+            </div>
+
+            <h3>
+                Track Orders
+            </h3>
+
+            <p>
+                Track your order from purchase
+                to delivery.
+            </p>
+
+        </a>
+
+
+        <div class="explore-card">
+
+            <div class="large-icon">
+                🔗
+            </div>
+
+            <h3>
+                Secure Ledger
+            </h3>
+
+            <p>
+                Verify that marketplace records
+                have not been changed.
+            </p>
+
+            <button onclick="verifyLedger()">
+                Verify Records
+            </button>
+
+        </div>
+
+
+        <div class="explore-card">
+
+            <div class="large-icon">
+                🚨
+            </div>
+
+            <h3>
+                Fraud Protection
+            </h3>
+
+            <p>
+                Suspicious listings are detected
+                automatically.
+            </p>
+
+        </div>
+
+
+        <a href="/register"
+           class="explore-card">
+
+            <div class="large-icon">
+                🔐
+            </div>
+
+            <h3>
+                Secure Registration
+            </h3>
+
+            <p>
+                Register using mobile verification.
+            </p>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+
+<section class="how-section">
+
+    <h2>
+        How MarketHub Works
+    </h2>
+
+
+    <div class="steps">
+
+
+        <div class="step">
+
+            <span>01</span>
+
+            <h3>
+                Farmer Registers
+            </h3>
+
+            <p>
+                Farmer registers and verifies
+                their account.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <span>02</span>
+
+            <h3>
+                Product Listed
+            </h3>
+
+            <p>
+                Verified farmers list fresh
+                farm products.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <span>03</span>
+
+            <h3>
+                Buyer Orders
+            </h3>
+
+            <p>
+                Buyer searches and places
+                an order.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <span>04</span>
+
+            <h3>
+                Payment Held
+            </h3>
+
+            <p>
+                Demo escrow keeps payment
+                safely held.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <span>05</span>
+
+            <h3>
+                Payment Released
+            </h3>
+
+            <p>
+                Buyer confirms delivery and
+                payment is released.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- SECURITY -->
+
+<section class="security-section"
+         id="security">
+
+
+    <div class="security-content">
+
+        <span>
+            MARKETPLACE SECURITY
+        </span>
+
+        <h2>
+            We remove middlemen
+            <br>
+            and make trust automatic.
+        </h2>
+
+        <p>
+
+            MarketHub combines verified users,
+            tamper-proof records, escrow simulation
+            and fraud detection to create a trusted
+            marketplace.
+
+        </p>
+
+    </div>
+
+
+    <div class="security-grid">
+
+
+        <div>
+            <strong>
+                SHA-256
+            </strong>
+
+            <small>
+                Hash Ledger
+            </small>
+        </div>
+
+
+        <div>
+            <strong>
+                ESCROW
+            </strong>
+
+            <small>
+                Payment Protection
+            </small>
+        </div>
+
+
+        <div>
+            <strong>
+                OTP
+            </strong>
+
+            <small>
+                User Verification
+            </small>
+        </div>
+
+
+        <div>
+            <strong>
+                FRAUD
+            </strong>
+
+            <small>
+                Rule Detection
+            </small>
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h2>
+        🌾 MarketHub
+    </h2>
+
+    <p>
+        Fair prices. Fresh produce.
+        Trusted transactions.
+    </p>
+
+
+    <div class="footer-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/marketplace">
+            Marketplace
+        </a>
+
+        <a href="/register">
+            Farmers
+        </a>
+
+        <a href="#security">
+            Security
+        </a>
+
+        <a href="/orders">
+            Orders
+        </a>
+
+    </div>
+
+
+    <small>
+        © 2026 MarketHub —
+        Farmer-to-Consumer Secure Marketplace
+    </small>
+
+</footer>
+
+
+<script>
+
+async function verifyLedger() {
+
+    const response =
+        await fetch("/api/verify-ledger");
+
+    const data =
+        await response.json();
+
+
+    if (data.valid) {
+
+        alert(
+            "✅ Ledger Verified!\n\n" +
+            "All records are valid and untampered."
+        );
+
+    }
+
+    else {
+
+        alert(
+            "❌ Tampering Detected!\n\n" +
+            "The ledger integrity check failed."
+        );
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>

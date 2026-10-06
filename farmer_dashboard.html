@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Farmer Dashboard | MarketHub</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            👨‍🌾
+        </div>
+
+        <div>
+
+            <h1>MarketHub</h1>
+
+            <small>
+                Farmer Dashboard
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/farmer/dashboard">
+            Dashboard
+        </a>
+
+        <a href="/farmer/add-product">
+            Add Product
+        </a>
+
+        <a href="/logout">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+
+<section class="dashboard">
+
+    <div class="dashboard-header">
+
+        <div>
+
+            <span class="verified">
+                ✓ VERIFIED FARMER
+            </span>
+
+            <h2>
+                Welcome, {{ session["user_name"] }}
+            </h2>
+
+            <p>
+                Manage your products and customer orders.
+            </p>
+
+        </div>
+
+
+        <a href="/farmer/add-product"
+           class="primary-button">
+
+            + Add Product
+
+        </a>
+
+    </div>
+
+
+    <h2 class="dashboard-title">
+        Your Products
+    </h2>
+
+
+    <div class="product-grid">
+
+        {% for product in products %}
+
+        <div class="product-card">
+
+            <div class="product-image">
+                🌱
+            </div>
+
+            <h3>
+                {{ product["name"] }}
+            </h3>
+
+            <p>
+                {{ product["category"] }}
+            </p>
+
+            <strong>
+                ₹{{ product["price"] }}/kg
+            </strong>
+
+            <p>
+                Quantity:
+                {{ product["quantity"] }} kg
+            </p>
+
+            <p>
+                📍 {{ product["location"] }}
+            </p>
+
+
+            <a href="/farmer/edit-product/{{ product['id'] }}">
+                Edit Product
+            </a>
+
+        </div>
+
+        {% else %}
+
+        <p>
+            You haven't added any products yet.
+        </p>
+
+        {% endfor %}
+
+    </div>
+
+
+    <h2 class="dashboard-title">
+        Customer Orders
+    </h2>
+
+
+    <div class="order-table">
+
+        {% for order in orders %}
+
+        <div class="order-row">
+
+            <strong>
+                Order #{{ order["id"] }}
+            </strong>
+
+            <span>
+                {{ order["product_name"] }}
+            </span>
+
+            <span>
+                {{ order["quantity"] }} kg
+            </span>
+
+            <span>
+                ₹{{ order["total"] }}
+            </span>
+
+            <span>
+                {{ order["status"] }}
+            </span>
+
+        </div>
+
+        {% else %}
+
+        <p>
+            No orders yet.
+        </p>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+</body>
+
+</html>

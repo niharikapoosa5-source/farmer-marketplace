@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Orders | MarketHub</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            📦
+        </div>
+
+        <div>
+
+            <h1>MarketHub</h1>
+
+            <small>
+                My Orders
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/marketplace">
+            Marketplace
+        </a>
+
+        <a href="/logout">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+
+<section class="dashboard">
+
+    <h2>
+        Your Orders
+    </h2>
+
+
+    {% for order in orders %}
+
+    <div class="order-card">
+
+        <div>
+
+            <h3>
+                Order #{{ order["id"] }}
+            </h3>
+
+            <p>
+                Product:
+                {{ order["product_name"] }}
+            </p>
+
+            <p>
+                Farmer:
+                {{ order["farmer_name"] }}
+            </p>
+
+            <p>
+                Quantity:
+                {{ order["quantity"] }} kg
+            </p>
+
+            <p>
+                Total:
+                ₹{{ order["total"] }}
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <strong>
+                Order:
+                {{ order["status"] }}
+            </strong>
+
+            <br>
+
+            <strong>
+                Payment:
+                {{ order["payment_status"] }}
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            {% if order["status"] == "Pending" %}
+
+            <a
+                class="primary-button"
+                href="/order/{{ order['id'] }}/received">
+
+                ✓ Received
+
+            </a>
+
+            <a
+                class="outline-button"
+                href="/order/{{ order['id'] }}/dispute">
+
+                Dispute
+
+            </a>
+
+            {% elif order["status"] == "Delivered" %}
+
+            <span class="success">
+                ✓ Payment Released
+            </span>
+
+            {% elif order["status"] == "Disputed" %}
+
+            <span class="warning">
+                ⚠ Payment Held
+            </span>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    {% else %}
+
+    <p>
+        You haven't placed any orders yet.
+    </p>
+
+    {% endfor %}
+
+</section>
+
+
+</body>
+
+</html>
